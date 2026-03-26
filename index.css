@@ -17,8 +17,9 @@
   --primary-color: #007bff;
   --secondary-color: #6c757d;
   --background-color: #f8f9fa;
-  --text-color: #212529;
-  --font-main: Arial, sans-serif;
+  --text-color: #000000;
+  --font-main: "Smythe", system-ui;
+  --fw: 400;
 }
 
 /* =========================
@@ -29,41 +30,83 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
+  font-weight: var(--fw);
+}
+
+header {
+  color: #ffffff;
+  background-image: url("/burger.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+header {
+  padding: 0 0 1em 2em;
 }
 
 /* =========================
    4. TYPOGRAPHY
    ========================= */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 0.5em;
+h1 {
+  font-weight: var(--fw);
 }
 
 p {
-  margin-bottom: 1em;
+  margin-bottom: 0.3em;
 }
 
 /* =========================
    5. LAYOUT HELPERS
    ========================= */
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .flex {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.6em;
 }
 
-.grid {
-  display: grid;
-  gap: 1rem;
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0;
+  border-bottom: #d2d2d2 2px solid;
+}
+
+.main-menu {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.item-price {
+  font-weight: 600;
+}
+
+.item-description {
+  color: #8b8b8b;
+  font-size: 0.8em;
+}
+
+.item-emoji {
+  font-size: 3em;
+  text-align: center;
+  margin: 0;
+}
+
+.add-button {
+  color: #3c3c3c;
+  background-color: #ffffff;
+  border: #dedede 2px solid;
+  border-radius: 50%;
+  padding: 0.5em;
+  height: 3em;
+  width: 3em;
+  font-size: 1em;
 }
 
 /* =========================
@@ -101,17 +144,4 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-/* =========================
-   9. MEDIA QUERIES
-   ========================= */
-@media (max-width: 768px) {
-  .container {
-    width: 95%;
-  }
-
-  .flex {
-    flex-direction: column;
-  }
 }
