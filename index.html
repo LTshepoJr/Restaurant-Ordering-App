@@ -18,7 +18,22 @@
         <h1>Jimmy's Diner</h1>
         <p>The best burgers and pizzas in town.</p>
       </header>
-      <section id="mainMenu" class="main-menu"></section>
+      <section class="main-page">
+        <section id="mainMenu" class="main-menu"></section>
+        <section id="checkout" class="checkout">
+          <h3 class="y-axis-margin">Your Order</h3>
+          <div class="ordered-items" id="orderedItems">
+            <div class="order-list" id="orderList"></div>
+            <div class="order-list-flex y-axis-margin">
+              <h3>Total price:</h3>
+              <p id="totalCost"></p>
+            </div>
+            <button type="button" class="complete-order">
+              Completer order
+            </button>
+          </div>
+        </section>
+      </section>
     </main>
     <script type="module" src="/index.js"></script>
   </body>
