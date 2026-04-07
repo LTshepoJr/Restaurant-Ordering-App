@@ -1,8 +1,10 @@
 import { menuArray } from "./data.js";
+let orderedItems = [];
+let totalItemsPrice = 0;
 
 document.addEventListener("click", (e) => {
   if (e.target.dataset.addItem) {
-    console.log(e.target.dataset.addItem);
+    orderObjNum(e.target.dataset.addItem);
   }
 });
 
@@ -64,6 +66,38 @@ const findOrderObject = (clickedId) => {
   } catch (err) {
     console.error(err);
   }
+};
+
+const orderObjNum = (orderNumber) => {
+  const obj = findOrderObject(orderNumber);
+  orderedItems.push(obj);
+  const orderList = orderedItems.map(
+    ({ name, price }) =>
+      `<div class="order order-list-flex y-axis-margin">
+        <div class="order-flex">
+          <h3>${name}</h3>
+          <p class="remove">remove</p>
+        </div>
+        <p>$${price}</p>
+      </div>`,
+  );
+  const totalPrice = orderedItems.reduce((total, current) => {
+    return total + current.price;
+  }, 0);
+  if (orderedItems) {
+    checkoutOrderList(orderList);
+    totalAmount(totalPrice);
+    document.getElementById("checkout").style.display = "block";
+  }
+};
+
+const checkoutOrderList = (stringArray) => {
+  document.getElementById("orderList").innerHTML = stringArray.join("");
+};
+
+const totalAmount = (totalPrice) => {
+  totalItemsPrice = totalPrice;
+  document.getElementById("totalCost").innerHTML = `$${totalItemsPrice}`;
 };
 
 const render = () => {
