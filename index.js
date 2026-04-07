@@ -74,13 +74,18 @@ const orderObjNum = (orderNumber) => {
     checkoutOrderList(orderedItems);
     totalAmount(orderedItems);
     document.getElementById("checkout").style.display = "block";
+    document.querySelectorAll(".remove").forEach((items, index) => {
+      items.addEventListener("click", () => {
+        orderedItems.splice(index, 1);
+      });
+    });
   }
 };
 
 const checkoutOrderList = (itemsArray) => {
   const orderListContainer = document.getElementById("orderList");
   orderListContainer.replaceChildren();
-  itemsArray.forEach(({ name, price }) => {
+  itemsArray.forEach(({ name, price, id }) => {
     const orderDiv = document.createElement("div");
     orderDiv.className = "order order-list-flex y-axis-margin";
 
