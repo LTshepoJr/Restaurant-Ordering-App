@@ -24,7 +24,11 @@
   --color-border: #d2d2d2;
   --color-text-muted: #8b8b8b;
   --color-button: #3c3c3c;
+  --color-border-2: #3c3c3c;
   --color-button-border: #dedede;
+  --order-margin: 0.4em;
+  --color-remove: #bbbbbb;
+  --color-bg-green: #16db99;
 }
 
 /* =========================
@@ -82,7 +86,7 @@ p {
   border-bottom: var(--color-border) 2px solid;
 }
 
-.main-menu {
+.main-page {
   width: 85%;
   margin: 0 auto;
 }
@@ -100,6 +104,64 @@ p {
   font-size: var(--font-size-large);
   text-align: center;
   margin: 0;
+}
+
+.checkout {
+  text-align: center;
+  display: none;
+}
+
+.y-axis-margin {
+  margin: var(--order-margin) 0;
+}
+
+.ordered-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.ordered-items h3 {
+  font-weight: var(--font-weight-normal);
+}
+
+.order-list {
+  border-bottom: 2px solid var(--color-border-2);
+}
+
+.order-list-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4em;
+  align-items: center;
+}
+
+.complete-order {
+  margin: 0.7em 0 var(--order-margin) 0;
+  background-color: var(--color-bg-green);
+  border: none;
+  color: var(--color-white);
+  padding: 1em 0;
+  font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  border-radius: 0.1em;
+}
+
+.remove {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--color-remove);
+  font-size: var(--font-size-small);
+}
+
+.remove:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* =========================
