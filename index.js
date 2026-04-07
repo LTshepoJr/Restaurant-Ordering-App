@@ -1,6 +1,5 @@
 import { menuArray } from "./data.js";
 let orderedItems = [];
-let totalItemsPrice = 0;
 
 document.addEventListener("click", (e) => {
   if (e.target.dataset.addItem) {
@@ -112,9 +111,8 @@ const totalAmount = (itemsArray) => {
   const totalPrice = itemsArray.reduce((total, current) => {
     return total + current.price;
   }, 0);
-  totalItemsPrice = totalPrice;
   const totalCostElement = document.getElementById("totalCost");
-  totalCostElement.textContent = `$${totalItemsPrice}`;
+  totalCostElement.textContent = `$${totalPrice}`;
 };
 
 const render = () => {
