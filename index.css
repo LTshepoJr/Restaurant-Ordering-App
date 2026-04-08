@@ -173,8 +173,8 @@ p {
   left: 0;
   bottom: 0;
   margin: auto;
-  width: 30em;
-  height: 27em;
+  width: 300px;
+  height: 470px;
   padding: 1em;
   background-color: var(--color-white);
   box-shadow: 0 0 200px #0000009f;
