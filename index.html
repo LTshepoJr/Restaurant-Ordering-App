@@ -38,13 +38,13 @@
             <h2>Enter card details</h2>
             <button type="button" class="btn" id="closeBtn">X</button>
           </div>
-          <form class="checkout-payment">
+          <form class="checkout-payment" id="paymentForm">
             <label for="name">Card Name:</label>
             <input
               type="text"
               id="name"
               class="form-input"
-              name="card-name"
+              name="cardName"
               placeholder="Enter your name"
               required
             />
@@ -56,7 +56,7 @@
               maxlength="16"
               id="cardNumber"
               class="form-input"
-              name="card-number"
+              name="cardNumber"
               placeholder="Enter card number"
               required
             />
@@ -72,7 +72,7 @@
               placeholder="Enter CVV"
               required
             />
-            <button type="submit" class="green-btn">Pay</button>
+            <button type="submit" class="green-btn" id="pay">Pay</button>
           </form>
         </section>
       </section>
