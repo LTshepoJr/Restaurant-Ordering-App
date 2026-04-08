@@ -42,7 +42,7 @@ const menu = (array = []) => {
 
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "add-button";
+    button.className = "btn";
     button.setAttribute("data-add-item", id);
     button.textContent = "+";
 
@@ -127,6 +127,14 @@ const totalAmount = (itemsArray) => {
   const totalCostElement = document.getElementById("totalCost");
   totalCostElement.textContent = `$${totalPrice}`;
 };
+
+document.getElementById("completeOrder").addEventListener("click", () => {
+  document.querySelector(".checkout-payment-modal").style.display = "block";
+});
+
+document.getElementById("closeBtn").addEventListener("click", () => {
+  document.querySelector(".checkout-payment-modal").style.display = "none";
+});
 
 const render = () => {
   const mainMenu = document.getElementById("mainMenu");
