@@ -1,5 +1,6 @@
 import { menuArray } from "./data.js";
 let orderedItems = [];
+const checkout = document.getElementById("checkout");
 
 document.addEventListener("click", (e) => {
   if (e.target.dataset.addItem) {
@@ -72,7 +73,7 @@ const orderObjNum = (orderNumber) => {
   orderedItems.push(obj);
   checkoutOrderList(orderedItems);
   totalAmount(orderedItems);
-  document.getElementById("checkout").style.display = "block";
+  checkout.style.display = "block";
 };
 
 // Single delegated listener on the order list — no stale indices or duplicate handlers
@@ -83,7 +84,7 @@ document.getElementById("orderList").addEventListener("click", (e) => {
     );
     orderedItems.splice(index, 1);
     if (orderedItems.length === 0) {
-      document.getElementById("checkout").style.display = "none";
+      checkout.style.display = "none";
     }
     checkoutOrderList(orderedItems);
     totalAmount(orderedItems);
@@ -134,6 +135,16 @@ document.getElementById("completeOrder").addEventListener("click", () => {
 
 document.getElementById("closeBtn").addEventListener("click", () => {
   document.querySelector(".checkout-payment-modal").style.display = "none";
+});
+const paymentForm = document.getElementById("paymentForm");
+paymentForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = new FormData(paymentForm);
+  const objForm = Object.fromEntries(formData);
+  const cardName = objForm.cardName;
+  const checkoutSuccessString = `Thanks, ${cardName}! Your order is on the way!`;
+  document.querySelector(".checkout-payment-modal").style.display = "none";
+  checkout.innerHTML = `<p class="checkout-string">${checkoutSuccessString}</p>`;
 });
 
 const render = () => {
