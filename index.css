@@ -140,7 +140,7 @@ p {
   align-items: center;
 }
 
-.complete-order {
+.green-btn {
   margin: 0.7em 0 var(--order-margin) 0;
   background-color: var(--color-bg-green);
   border: none;
@@ -150,6 +150,7 @@ p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1rem;
   border-radius: 0.1em;
+  cursor: pointer;
 }
 
 .remove {
@@ -164,11 +165,45 @@ p {
   cursor: pointer;
 }
 
+.checkout-payment-modal {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  width: 30em;
+  height: 27em;
+  padding: 1em;
+  background-color: var(--color-white);
+  box-shadow: 0 0 200px #0000009f;
+  display: none;
+}
+
+.checkout-payment-modal > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-payment {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  border-radius: 0.1em;
+  margin: 0.7em 0 var(--order-margin) 0;
+  font-size: 1rem;
+  padding: 1em 0 1em 0.5em;
+  border: 2px solid #757575;
+}
+
 /* =========================
    6. BUTTONS
    ========================= */
 
-.add-button {
+.btn {
   color: var(--color-button);
   background-color: var(--color-white);
   border: var(--color-button-border) 2px solid;
@@ -179,11 +214,11 @@ p {
   cursor: pointer;
 }
 
-.add-button:hover {
+.btn:hover {
   opacity: 0.7;
 }
 
-.add-button:active {
+.btn:active {
   background-color: var(--color-button);
   color: var(--color-white);
 }
