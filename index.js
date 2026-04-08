@@ -70,22 +70,30 @@ const findOrderObject = (clickedId) => {
 const orderObjNum = (orderNumber) => {
   const obj = findOrderObject(orderNumber);
   orderedItems.push(obj);
-  if (orderedItems) {
+  checkoutOrderList(orderedItems);
+  totalAmount(orderedItems);
+  document.getElementById("checkout").style.display = "block";
+};
+
+// Single delegated listener on the order list — no stale indices or duplicate handlers
+document.getElementById("orderList").addEventListener("click", (e) => {
+  if (e.target.classList.contains("remove")) {
+    const index = Array.from(document.querySelectorAll(".remove")).indexOf(
+      e.target,
+    );
+    orderedItems.splice(index, 1);
+    if (orderedItems.length === 0) {
+      document.getElementById("checkout").style.display = "none";
+    }
     checkoutOrderList(orderedItems);
     totalAmount(orderedItems);
-    document.getElementById("checkout").style.display = "block";
-    document.querySelectorAll(".remove").forEach((items, index) => {
-      items.addEventListener("click", () => {
-        orderedItems.splice(index, 1);
-      });
-    });
   }
-};
+});
 
 const checkoutOrderList = (itemsArray) => {
   const orderListContainer = document.getElementById("orderList");
   orderListContainer.replaceChildren();
-  itemsArray.forEach(({ name, price, id }) => {
+  itemsArray.forEach(({ name, price }) => {
     const orderDiv = document.createElement("div");
     orderDiv.className = "order order-list-flex y-axis-margin";
 
